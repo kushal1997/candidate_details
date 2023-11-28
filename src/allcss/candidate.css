@@ -1,0 +1,67 @@
+.Login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .form_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 40rem;
+  }
+  .Login-form label {
+    display: flex;
+    flex-direction: column;
+  
+    text-align: center;
+    float: left;
+  }
+  .Login-form input {
+    float: right;
+    margin: 15px 0;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    width: 250px;
+    color: black;
+  }
+  .form-divider {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .form-divider1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .User-DropDown {
+    margin-top: 10px;
+    color: black;
+    width: 250px
+  }
+  .state-dist {
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  .state-dist option {
+    color: black;
+  }
+  .state-dist select {
+    color: black;
+    margin-left: 10px;
+    width: 17rem;
+    height: 30px;
+    border-radius: 5px;
+  }
+  .error {
+    color: rgb(196, 9, 9);
+    font-size: large;
+    font-weight: 500;
+    border-radius: 100px;
+    margin-bottom: 5px;
+  }
