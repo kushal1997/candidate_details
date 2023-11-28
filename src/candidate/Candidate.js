@@ -25,6 +25,8 @@ const validationSchema = Yup.object().shape({
 const Candidate = () => {
   const recuiterOptions = ['Select', 'Pushpanjali', 'Rajlaxmi', 'Rituparna', 'Intern'];
   const initialValues = {
+    company_name: '',
+    jd: '',
     recruiter_name: '',
     first_name: '',
     last_name: '',
@@ -46,13 +48,15 @@ const Candidate = () => {
     adhara_card: '',
     high_qualification: '',
     dob: '',
-    comments:'',
-    skill_list:''
+    comments: '',
+    skill_list: ''
   };
 
   const handelSubmit = (values, { resetForm }) => {
     console.log(values);
     const formData = new FormData();
+    formData.append("CompanyName", values.company_name);
+    formData.append("Jd", values.jd);
     formData.append("RecruiterName", values.recruiter_name);
     formData.append("FirstName", values.first_name);
     formData.append("LastName", values.last_name);
@@ -74,8 +78,8 @@ const Candidate = () => {
     formData.append("MiddleName", values.middle_name);
     formData.append("Certification", values.certification);
     formData.append("AdharaCard", values.adhara_card);
-    formData.append("Comments",values.comments);
-    formData.append("Skills",values.skill_list)
+    formData.append("Comments", values.comments);
+    formData.append("Skills", values.skill_list);
 
     fetch(
       "https://script.google.com/macros/s/AKfycbwyBSWcvNtvbe3JeLSUTDFjvASXMm2xAjnIv0ekBHTC4osQ2UwHKPIwPnatjLXZ-tKYJQ/exec",
@@ -106,7 +110,7 @@ const Candidate = () => {
       <div className={`${styles.paddingX} ${styles.flexCenter} z-[3]`}>
         <div className={`${styles.boxWidth} items-center justify-items-center`}>
           <div className='flex flex-row shadow-lg shadow-blue-500 mt-3 text-center'>
-          <img style={{
+            <img style={{
               height: '8vh',
               width: '15%',
               float: 'left'
@@ -115,7 +119,7 @@ const Candidate = () => {
 
               Candidate Details
             </h1>
-           
+
           </div>
           <div className={`text-white font-poppins text-[16px] border-2 mt-10 h-fit bg-blue-900 shadow-lg shadow-blue-500  items-center overflow-hidden ${styles.boxWidth}`}>
             <Formik
@@ -137,6 +141,12 @@ const Candidate = () => {
                 </div>
                 <div className="form_row">
                   <div className="form-divider">
+                    <label htmlFor="company_name"> Company Name
+                      <Field type="text" id="company_name" placeholder="Enter your first name" name="company_name" />
+                    </label>
+                    <br />
+                    <hr />
+                    <br />
                     <label htmlFor="first_name"> Candidate Full Name  *
                       <Field type="text" id="first_name" placeholder="Enter your first name" name="first_name" />
                       <ErrorMessage name="first_name" className='error' component="div" />
@@ -189,6 +199,12 @@ const Candidate = () => {
                     </label>
                   </div>
                   <div className="form-divider">
+                    <label htmlFor="jd"> Jd
+                      <Field type="text" id="jd" placeholder="Enter your first name" name="jd" />
+                    </label>
+                    <br />
+                    <hr />
+                    <br />
                     <label htmlFor="dob"> DOB
                       <Field type="date" id="dob" placeholder="Enter your DOB" name="dob" />
 

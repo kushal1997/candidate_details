@@ -15,7 +15,6 @@ export const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(credentials.email==="recruter2023" && credentials.password==="Dayacs2023"){
-            alert("Login Successful")
             navigate("/recruiter");
         }
         else{
