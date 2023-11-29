@@ -26,60 +26,57 @@ const Candidate = () => {
   const recuiterOptions = ['Select', 'Pushpanjali', 'Rajlaxmi', 'Rituparna', 'Intern'];
   const initialValues = {
     company_name: '',
-    jd: '',
     recruiter_name: '',
+    jd: '',
     first_name: '',
-    last_name: '',
+    comments: '',
     email: '',
-    alt_email: '',
     phnum: '',
-    alt_phnum: '',
+    dob: '',
+    YOE: '',
+    high_qualification: '',
     current_location: '',
     expected_location: '',
     current_company: '',
     current_designation: '',
-    YOE: '',
-    notice_period: '',
     current_ctc: '',
     expected_ctc: '',
-    pan_no: '',
-    middle_name: '',
     certification: '',
+    skill_list: '',
+    alt_email: '',
+    alt_phnum: '',
+    notice_period: '',
+    pan_no: '',
     adhara_card: '',
-    high_qualification: '',
-    dob: '',
-    comments: '',
-    skill_list: ''
   };
 
   const handelSubmit = (values, { resetForm }) => {
     console.log(values);
     const formData = new FormData();
     formData.append("CompanyName", values.company_name);
-    formData.append("Jd", values.jd);
     formData.append("RecruiterName", values.recruiter_name);
+    formData.append("Jd", values.jd);
     formData.append("FirstName", values.first_name);
-    formData.append("LastName", values.last_name);
+    formData.append("Comments", values.comments);
     formData.append("Email", values.email);
-    formData.append("AltEmail", values.alt_email);
     formData.append("Phnum", values.phnum);
-    formData.append("AltPhnum", values.alt_phnum);
     formData.append("DOB", values.dob);
+    formData.append("YOE", values.YOE);
     formData.append("HighQual", values.high_qualification);
     formData.append("CurrentLoc", values.current_location);
     formData.append("ExpLoc", values.expected_location);
     formData.append("CurrentCompany", values.current_company);
     formData.append("CurrentDesg", values.current_designation);
-    formData.append("YOE", values.YOE);
-    formData.append("NoticePeriod", values.notice_period);
     formData.append("CurrentCTC", values.current_ctc);
     formData.append("ExpectedCTC", values.expected_ctc);
-    formData.append("PanNO", values.pan_no);
-    formData.append("MiddleName", values.middle_name);
     formData.append("Certification", values.certification);
-    formData.append("AdharaCard", values.adhara_card);
-    formData.append("Comments", values.comments);
     formData.append("Skills", values.skill_list);
+    formData.append("AltEmail", values.alt_email);
+    formData.append("AltPhnum", values.alt_phnum);
+    formData.append("NoticePeriod", values.notice_period);
+    formData.append("PanNO", values.pan_no);
+    formData.append("AdharaCard", values.adhara_card);
+   
 
     fetch(
       "https://script.google.com/macros/s/AKfycbwyBSWcvNtvbe3JeLSUTDFjvASXMm2xAjnIv0ekBHTC4osQ2UwHKPIwPnatjLXZ-tKYJQ/exec",
