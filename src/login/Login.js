@@ -14,7 +14,7 @@ export const Login = () => {
     });
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(credentials.email==="recruter2023" && credentials.password==="Dayacs2023"){
+        if(credentials.email==="recruiter2023" && credentials.password==="Dayacs2023"){
             navigate("/recruiter");
         }
         else{
