@@ -50,7 +50,6 @@ const Candidate = () => {
     pan_no: '',
     adhara_card: '',
   };
-  // const [submissionDate, setSubmissionDate] = useState(null);
   const handelSubmit = (values, { resetForm }) => {
     const localDate = moment().tz(moment.tz.guess()).format('DD-MM-YYYY');
     
@@ -125,7 +124,7 @@ const Candidate = () => {
           <div className={`text-white font-poppins text-[16px] border-2 mt-10 h-fit bg-blue-900 shadow-lg shadow-blue-500  items-center overflow-hidden ${styles.boxWidth}`}>
             <Formik
               initialValues={initialValues}
-              // validationSchema={validationSchema}
+              validationSchema={validationSchema}
               onSubmit={handelSubmit}>
 
               <Form className="Login-form">
