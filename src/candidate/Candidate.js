@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import '../allcss/candidate.css'
 import styles from '../Styles';
 import logo from '../assets/logowht.png'
+import moment from 'moment-timezone';
 
 const validationSchema = Yup.object().shape({
   recruiter_name: Yup.string()
@@ -49,10 +50,13 @@ const Candidate = () => {
     pan_no: '',
     adhara_card: '',
   };
-
+  // const [submissionDate, setSubmissionDate] = useState(null);
   const handelSubmit = (values, { resetForm }) => {
+    const localDate = moment().tz(moment.tz.guess()).format('DD-MM-YYYY');
+    
     console.log(values);
     const formData = new FormData();
+    formData.append("Date",localDate)
     formData.append("CompanyName", values.company_name);
     formData.append("RecruiterName", values.recruiter_name);
     formData.append("Jd", values.jd);
@@ -76,7 +80,7 @@ const Candidate = () => {
     formData.append("NoticePeriod", values.notice_period);
     formData.append("PanNO", values.pan_no);
     formData.append("AdharaCard", values.adhara_card);
-   
+
 
     fetch(
       "https://script.google.com/macros/s/AKfycbwyBSWcvNtvbe3JeLSUTDFjvASXMm2xAjnIv0ekBHTC4osQ2UwHKPIwPnatjLXZ-tKYJQ/exec",
@@ -121,7 +125,7 @@ const Candidate = () => {
           <div className={`text-white font-poppins text-[16px] border-2 mt-10 h-fit bg-blue-900 shadow-lg shadow-blue-500  items-center overflow-hidden ${styles.boxWidth}`}>
             <Formik
               initialValues={initialValues}
-              validationSchema={validationSchema}
+              // validationSchema={validationSchema}
               onSubmit={handelSubmit}>
 
               <Form className="Login-form">
