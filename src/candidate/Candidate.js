@@ -5,6 +5,7 @@ import '../allcss/candidate.css'
 import styles from '../Styles';
 import logo from '../assets/logowht.png'
 import moment from 'moment-timezone';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const validationSchema = Yup.object().shape({
   recruiter_name: Yup.string()
@@ -24,6 +25,7 @@ const validationSchema = Yup.object().shape({
 }
 )
 const Candidate = () => {
+  const navigate = useNavigate();
   const recuiterOptions = ['Select', 'Pushpanjali', 'Rajlaxmi', 'Rituparna', 'Intern'];
   const initialValues = {
     company_name: '',
@@ -52,10 +54,10 @@ const Candidate = () => {
   };
   const handelSubmit = (values, { resetForm }) => {
     const localDate = moment().tz(moment.tz.guess()).format('DD-MM-YYYY');
-    
+
     console.log(values);
     const formData = new FormData();
-    formData.append("Date",localDate)
+    formData.append("Date", localDate)
     formData.append("CompanyName", values.company_name);
     formData.append("RecruiterName", values.recruiter_name);
     formData.append("Jd", values.jd);
@@ -105,6 +107,7 @@ const Candidate = () => {
 
   }
 
+
   return (
     <div className={` bg-black overflow-hidden w-full  h-[1280px] pipeline `}>
       <div className={`${styles.paddingX} ${styles.flexCenter} z-[3]`}>
@@ -119,6 +122,10 @@ const Candidate = () => {
 
               Candidate Details
             </h1>
+            <button onClick={() => navigate("/")}
+              className='text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xl px-3 py-1.5 text-center me-2 mb-2'>
+              Logout
+            </button>
 
           </div>
           <div className={`text-white font-poppins text-[16px] border-2 mt-10 h-fit bg-blue-900 shadow-lg shadow-blue-500  items-center overflow-hidden ${styles.boxWidth}`}>
