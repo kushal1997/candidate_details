@@ -5,7 +5,7 @@ import '../allcss/candidate.css'
 import styles from '../Styles';
 import logo from '../assets/logowht.png'
 import moment from 'moment-timezone';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const validationSchema = Yup.object().shape({
   recruiter_name: Yup.string()
