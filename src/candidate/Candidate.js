@@ -1,5 +1,5 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik'
-import React from 'react';
+import React, { useState } from 'react';
 import * as Yup from 'yup';
 import '../allcss/candidate.css'
 import styles from '../Styles';
@@ -26,10 +26,15 @@ const validationSchema = Yup.object().shape({
 )
 const Candidate = () => {
   const navigate = useNavigate();
-  const recuiterOptions = ['Select', 'Pushpanjali', 'Rajlaxmi', 'Rituparna', 'Intern'];
+  const recuiterOptions = ['Select', 'Pushpanjali', 'Rajlaxmi', 'Rituparna', 'Dharitri'];
+  const [selectedRecruiter, setSelectedRecruiter] = useState('Select');
+
+  // Event handler for select change
+  const handleRecruiterChange = (event) => {
+    setSelectedRecruiter(event.target.value);
+  };
   const initialValues = {
     company_name: '',
-    recruiter_name: '',
     jd: '',
     first_name: '',
     comments: '',
@@ -59,7 +64,7 @@ const Candidate = () => {
     const formData = new FormData();
     formData.append("Date", localDate)
     formData.append("CompanyName", values.company_name);
-    formData.append("RecruiterName", values.recruiter_name);
+    formData.append("RecruiterName", selectedRecruiter);
     formData.append("Jd", values.jd);
     formData.append("FirstName", values.first_name);
     formData.append("Comments", values.comments);
@@ -83,25 +88,88 @@ const Candidate = () => {
     formData.append("AdharaCard", values.adhara_card);
 
 
-    fetch(
-      "https://script.google.com/macros/s/AKfycbwyBSWcvNtvbe3JeLSUTDFjvASXMm2xAjnIv0ekBHTC4osQ2UwHKPIwPnatjLXZ-tKYJQ/exec",
-      {
-        method: "POST",
-        body: formData,
-      }
-    )
-      .then((response) => {
-        if (response.ok) {
-          console.log("Form data submitted successfully.");
-          alert("Form data submitted successfully.");
-
-        } else {
-          alert("Failed to submit form data.");
+    if (selectedRecruiter === "Pushpanjali") {
+      fetch(
+        "https://script.google.com/macros/s/AKfycbwyBSWcvNtvbe3JeLSUTDFjvASXMm2xAjnIv0ekBHTC4osQ2UwHKPIwPnatjLXZ-tKYJQ/exec",
+        {
+          method: "POST",
+          body: formData,
         }
-      })
-      .catch((error) => {
-        console.error("An error occurred while submitting the form:", error);
-      });
+      )
+        .then((response) => {
+          if (response.ok) {
+            console.log("Form data submitted successfully.");
+            alert("Form data submitted successfully.");
+
+          } else {
+            alert("Failed to submit form data.");
+          }
+        })
+        .catch((error) => {
+          console.error("An error occurred while submitting the form:", error);
+        });
+    } else if (selectedRecruiter === "Rituparna") {
+      fetch(
+        "https://script.google.com/macros/s/AKfycbzI89ndK6f3AxIW-IrekBFMB7-qTFzUC3fmfgJ93yWDNc2AK7cJh9mGp-l72EJEySpGwg/exec",
+        {
+          method: "POST",
+          body: formData,
+        }
+      )
+        .then((response) => {
+          if (response.ok) {
+            console.log("Form data submitted successfully.");
+            alert("Form data submitted successfully.");
+
+          } else {
+            alert("Failed to submit form data.");
+          }
+        })
+        .catch((error) => {
+          console.error("An error occurred while submitting the form:", error);
+        });
+    } else if (selectedRecruiter === "Rajlaxmi") {
+      fetch(
+        "https://script.google.com/macros/s/AKfycbyc4fxKX3iRX_Z6T4sT8F9TVv8YvB4raWhEf7RvK-ftc5Wh2dvehi4oCUfG1tH2E5oxdw/exec",
+        {
+          method: "POST",
+          body: formData,
+        }
+      )
+        .then((response) => {
+          if (response.ok) {
+            console.log("Form data submitted successfully.");
+            alert("Form data submitted successfully.");
+
+          } else {
+            alert("Failed to submit form data.");
+          }
+        })
+        .catch((error) => {
+          console.error("An error occurred while submitting the form:", error);
+        });
+    } else if (selectedRecruiter === "Dharitri") {
+      fetch(
+        "https://script.google.com/macros/s/AKfycbx8IpqtSyFaf5Z1Q-FdRlpWOvET5AyoKdiBsVGWefBMB9P1umtQqFAWEqiH84vrFhp6/exec",
+        {
+          method: "POST",
+          body: formData,
+        }
+      )
+        .then((response) => {
+          if (response.ok) {
+            console.log("Form data submitted successfully.");
+            alert("Form data submitted successfully.");
+
+          } else {
+            alert("Failed to submit form data.");
+          }
+        })
+        .catch((error) => {
+          console.error("An error occurred while submitting the form:", error);
+        });
+    }
+
     resetForm();
 
 
@@ -109,7 +177,7 @@ const Candidate = () => {
 
 
   return (
-    <div className={` bg-black overflow-hidden w-full  h-[1280px] pipeline `}>
+    <div className={` bg-black overflow-hidden w-full h-[1500px] pipeline `}>
       <div className={`${styles.paddingX} ${styles.flexCenter} z-[3]`}>
         <div className={`${styles.boxWidth} items-center justify-items-center`}>
           <div className='flex flex-row shadow-lg shadow-blue-500 mt-3 text-center'>
@@ -128,24 +196,48 @@ const Candidate = () => {
             </button>
 
           </div>
+
+          <div className="flex w-full flex-row justify-evenly">
+            <a href="https://docs.google.com/spreadsheets/d/1VTjAwvtufsq9JJjjrKcjtA-fBppqlzHtlQXP5AiymJc/edit?usp=sharing" 
+            className='text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xl px-3 py-1.5 text-center me-2 mb-2 mt-8'
+            target="_blank" rel="noopener noreferrer">
+              Pushpanjali
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/14ksJ9U6rfQgbhRrpOHJudUw77UqZ_AsHrpZ_fXcE-EQ/edit?usp=sharing" 
+            className='text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xl px-3 py-1.5 text-center me-2 mb-2 mt-8'
+            target="_blank" rel="noopener noreferrer">
+              Rituparna 
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1CC52c_E4-VUbebek3Q163DEplkJoTyDVnWTzM8p0YOI/edit?usp=sharing" 
+            className='text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xl px-3 py-1.5 text-center me-2 mb-2 mt-8'
+            target="_blank" rel="noopener noreferrer">
+              Rajlaxmi 
+            </a>
+            <a href="https://docs.google.com/spreadsheets/d/1jZ_vTGYOQQ4uHx55ngpwCKI-vsZDjRLop2C_5cw5tos/edit?usp=sharing" 
+            className='text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xl px-3 py-1.5 text-center me-2 mb-2 mt-8'
+            target="_blank" rel="noopener noreferrer">
+              Dharitri 
+            </a>
+          </div>
           <div className={`text-white font-poppins text-[16px] border-2 mt-10 h-fit bg-blue-900 shadow-lg shadow-blue-500  items-center overflow-hidden ${styles.boxWidth}`}>
+            <div className='state-dist'>
+              <label htmlFor="recruiter_name">Recruiter Name:  *
+                <select value={selectedRecruiter} onChange={handleRecruiterChange}>
+                  {recuiterOptions.map((recruiter, index) => (
+                    <option key={index} value={recruiter}>
+                      {recruiter}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
             <Formik
               initialValues={initialValues}
               validationSchema={validationSchema}
               onSubmit={handelSubmit}>
 
-              <Form className="Login-form">
-                <div className='state-dist'>
-                  <label htmlFor="recruiter_name">Recruiter Name:  *
-                    <Field as="select" name="recruiter_name" className="User-DropDown">
-                      {recuiterOptions.map(option => (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      ))}
-                    </Field>
-                  </label>
-                </div>
+              <Form className="Login-form mb-8">
+
                 <div className="form_row">
                   <div className="form-divider">
                     <label htmlFor="company_name"> Company Name
