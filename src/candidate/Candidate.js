@@ -23,7 +23,7 @@ const validationSchema = Yup.object().shape({
 )
 const Candidate = () => {
   const navigate = useNavigate();
-  const recuiterOptions = ['Select', 'Pushpanjali', 'Rajlaxmi', 'Rituparna', 'Dharitri'];
+  const recuiterOptions = ['Select', 'Priyadarsinee', 'Rajlaxmi', 'Rituparna', 'Dharitri'];
   const [selectedRecruiter, setSelectedRecruiter] = useState('Select');
 
   // Event handler for select change
@@ -85,7 +85,7 @@ const Candidate = () => {
     formData.append("AdharaCard", values.adhara_card);
 
 
-    if (selectedRecruiter === "Pushpanjali") {
+    if (selectedRecruiter === "Priyadarsinee") {
       fetch(
         "https://script.google.com/macros/s/AKfycbwyBSWcvNtvbe3JeLSUTDFjvASXMm2xAjnIv0ekBHTC4osQ2UwHKPIwPnatjLXZ-tKYJQ/exec",
         {
@@ -198,7 +198,7 @@ const Candidate = () => {
             <a href="https://docs.google.com/spreadsheets/d/1VTjAwvtufsq9JJjjrKcjtA-fBppqlzHtlQXP5AiymJc/edit?usp=sharing"
               className='text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xl px-3 py-1.5 text-center me-2 mb-2 mt-8'
               target="_blank" rel="noopener noreferrer">
-              Pushpanjali
+              Priyadarsinee
             </a>
             <a href="https://docs.google.com/spreadsheets/d/14ksJ9U6rfQgbhRrpOHJudUw77UqZ_AsHrpZ_fXcE-EQ/edit?usp=sharing"
               className='text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xl px-3 py-1.5 text-center me-2 mb-2 mt-8'
