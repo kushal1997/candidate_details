@@ -23,7 +23,7 @@ const validationSchema = Yup.object().shape({
 )
 const Candidate = () => {
   const navigate = useNavigate();
-  const recuiterOptions = ['Select', 'Priyadarsinee', 'Rajesh', 'Surbhi'];
+  const recuiterOptions = ['Select', 'Priyadarsinee', 'Rajesh', 'Surbhi','Shilpa'];
   const [selectedRecruiter, setSelectedRecruiter] = useState('Select');
 
   // Event handler for select change
@@ -145,7 +145,7 @@ const Candidate = () => {
         .catch((error) => {
           console.error("An error occurred while submitting the form:", error);
         });
-    } else if (selectedRecruiter === "Dharitri") {
+    } else if (selectedRecruiter === "Shilpa") {
       fetch(
         "https://script.google.com/macros/s/AKfycbx8IpqtSyFaf5Z1Q-FdRlpWOvET5AyoKdiBsVGWefBMB9P1umtQqFAWEqiH84vrFhp6/exec",
         {
@@ -210,11 +210,11 @@ const Candidate = () => {
               target="_blank" rel="noopener noreferrer">
               Rajesh
             </a>
-            // <a href="https://docs.google.com/spreadsheets/d/1jZ_vTGYOQQ4uHx55ngpwCKI-vsZDjRLop2C_5cw5tos/edit?usp=sharing"
-            //   className='text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xl px-3 py-1.5 text-center me-2 mb-2 mt-8'
-            //   target="_blank" rel="noopener noreferrer">
-            //   Dharitri
-            // </a>
+            <a href="https://docs.google.com/spreadsheets/d/1jZ_vTGYOQQ4uHx55ngpwCKI-vsZDjRLop2C_5cw5tos/edit?usp=sharing"
+              className='text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xl px-3 py-1.5 text-center me-2 mb-2 mt-8'
+              target="_blank" rel="noopener noreferrer">
+              Shilpa
+            </a>
           </div>
           <div className={`text-white font-poppins text-[16px] border-2 mt-10 h-fit bg-blue-900 shadow-lg shadow-blue-500  items-center overflow-hidden ${styles.boxWidth}`}>
             <div className='state-dist'>
