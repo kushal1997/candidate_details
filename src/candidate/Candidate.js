@@ -23,7 +23,7 @@ const validationSchema = Yup.object().shape({
 )
 const Candidate = () => {
   const navigate = useNavigate();
-  const recuiterOptions = ['Select', 'Priyadarsinee', 'Rajlaxmi', 'Rituparna', 'Dharitri'];
+  const recuiterOptions = ['Select', 'Priyadarsinee', 'Rajesh', 'Surbhi'];
   const [selectedRecruiter, setSelectedRecruiter] = useState('Select');
 
   // Event handler for select change
@@ -105,7 +105,7 @@ const Candidate = () => {
         .catch((error) => {
           console.error("An error occurred while submitting the form:", error);
         });
-    } else if (selectedRecruiter === "Rituparna") {
+    } else if (selectedRecruiter === "Surbhi") {
       fetch(
         "https://script.google.com/macros/s/AKfycbzI89ndK6f3AxIW-IrekBFMB7-qTFzUC3fmfgJ93yWDNc2AK7cJh9mGp-l72EJEySpGwg/exec",
         {
@@ -125,7 +125,7 @@ const Candidate = () => {
         .catch((error) => {
           console.error("An error occurred while submitting the form:", error);
         });
-    } else if (selectedRecruiter === "Rajlaxmi") {
+    } else if (selectedRecruiter === "Rajesh") {
       fetch(
         "https://script.google.com/macros/s/AKfycbyc4fxKX3iRX_Z6T4sT8F9TVv8YvB4raWhEf7RvK-ftc5Wh2dvehi4oCUfG1tH2E5oxdw/exec",
         {
@@ -203,18 +203,18 @@ const Candidate = () => {
             <a href="https://docs.google.com/spreadsheets/d/14ksJ9U6rfQgbhRrpOHJudUw77UqZ_AsHrpZ_fXcE-EQ/edit?usp=sharing"
               className='text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xl px-3 py-1.5 text-center me-2 mb-2 mt-8'
               target="_blank" rel="noopener noreferrer">
-              Rituparna
+              Surbhi
             </a>
             <a href="https://docs.google.com/spreadsheets/d/1CC52c_E4-VUbebek3Q163DEplkJoTyDVnWTzM8p0YOI/edit?usp=sharing"
               className='text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xl px-3 py-1.5 text-center me-2 mb-2 mt-8'
               target="_blank" rel="noopener noreferrer">
-              Rajlaxmi
+              Rajesh
             </a>
-            <a href="https://docs.google.com/spreadsheets/d/1jZ_vTGYOQQ4uHx55ngpwCKI-vsZDjRLop2C_5cw5tos/edit?usp=sharing"
-              className='text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xl px-3 py-1.5 text-center me-2 mb-2 mt-8'
-              target="_blank" rel="noopener noreferrer">
-              Dharitri
-            </a>
+            // <a href="https://docs.google.com/spreadsheets/d/1jZ_vTGYOQQ4uHx55ngpwCKI-vsZDjRLop2C_5cw5tos/edit?usp=sharing"
+            //   className='text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xl px-3 py-1.5 text-center me-2 mb-2 mt-8'
+            //   target="_blank" rel="noopener noreferrer">
+            //   Dharitri
+            // </a>
           </div>
           <div className={`text-white font-poppins text-[16px] border-2 mt-10 h-fit bg-blue-900 shadow-lg shadow-blue-500  items-center overflow-hidden ${styles.boxWidth}`}>
             <div className='state-dist'>
